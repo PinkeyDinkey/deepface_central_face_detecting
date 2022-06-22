@@ -52,9 +52,9 @@ def detect_face(face_detector, detector_backend, img, align=True, central=True):
     if len(obj) > 0:
         if len(obj) > 1 and central:
             dist_list = []
-            centr = (img.shape[0] / 2, img.shape[1] / 2)
+            centr = (img.shape[1] / 2, img.shape[0] / 2)
             for face, coords in obj:
-                face_centre = (coords[0] + coords[3] / 2, coords[1] + coords[4] / 2)
+                face_centre = ((coords[0] + coords[2] / 2), (coords[1] + coords[3] / 2))
                 dist_list.append(distance_between_two_points(centr, face_centre))
             min_dist = min(dist_list)
             face, region = obj[dist_list.index(min_dist)]
