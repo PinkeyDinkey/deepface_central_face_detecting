@@ -50,9 +50,6 @@ def detect_face(face_detector, img, align=True):
 
             # detected_face = img[int(y):int(y+h), int(x):int(x+w)] #opencv
             detected_face = img[facial_area[1] : facial_area[3], facial_area[0] : facial_area[2]]
-            if centre_coords:
-                xx = (x + w) / 2
-                yy = (y + h) / 2
 
             if align:
                 landmarks = identity["landmarks"]
